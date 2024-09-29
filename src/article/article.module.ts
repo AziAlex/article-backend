@@ -7,4 +7,4 @@ import { Article } from './entites.ts/article.entity';
   imports: [TypeOrmModule.forFeature([Article])],
 })
 
-export class UserModule {}
+export class UserModule { }

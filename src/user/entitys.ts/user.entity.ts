@@ -35,6 +35,6 @@ export class User {
   @OneToOne(() => VerifiedUser, ({ user }) => user, { onDelete: 'CASCADE' })
   verifiedUser: VerifiedUser
 
-  @OneToMany(() => Article, ({user}) => user, { onDelete: 'CASCADE' })
+  @OneToMany(() => Article, ({ user }) => user, { onDelete: 'CASCADE' })
   articles: Article[];
 }

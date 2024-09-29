@@ -12,4 +12,4 @@ import { VerifiedUser } from './entitys.ts/verified-user.entity';
   exports: [UserService, TypeOrmModule],
   imports: [TypeOrmModule.forFeature([User, Token, VerifiedUser])],
 })
-export class UserModule {}
+export class UserModule { }
