@@ -1,24 +1,24 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm';
-import { User } from './user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, OneToOne, JoinColumn } from 'typeorm'
+import { User } from './user.entity'
 
 @Entity()
 export class VerifiedUser {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column()
-  code: number;
+  code: number
 
   @Column({ default: false })
-  verified: boolean;
+  verified: boolean
 
   @Column({ name: 'expires_at' })
-  expiresAt: Date;
+  expiresAt: Date
 
   @Column({ name: 'user_id' })
-  userId: string;
+  userId: string
 
   @OneToOne(() => User, (user) => user.verifiedUser)
   @JoinColumn()
-  user: User;
+  user: User
 }

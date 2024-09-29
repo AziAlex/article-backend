@@ -1,35 +1,35 @@
-import { User } from 'src/user/entitys.ts/user.entity';
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
+import { User } from 'src/user/entitys.ts/user.entity'
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
 
 @Entity()
 export class Article {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column({ nullable: true })
-  articleImage?: string;
+  articleImage?: string
 
   @Column()
-  title: string;
+  title: string
 
   @Column({ nullable: true })
-  description?: string;
+  description?: string
 
   @Column('simple-array')
-  tags: string[];
+  tags: string[]
 
   @Column()
-  markup: string;
+  markup: string
 
   @Column('simple-array')
-  images: string[];
+  images: string[]
 
   @Column()
-  createdAt: Date;
+  createdAt: Date
 
   @Column()
-  updatedAt: Date;
+  updatedAt: Date
 
   @ManyToOne(() => User, (user) => user.articles)
-  user: User;
+  user: User
 }

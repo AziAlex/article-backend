@@ -1,4 +1,4 @@
-import { ApiProperty } from "@nestjs/swagger";
+import { ApiProperty } from '@nestjs/swagger'
 
 export class GetUserDto {
   @ApiProperty({ example: '31d6c6b4-9280-4071-9ba0-958ded6b8f22' })

@@ -17,7 +17,16 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json"
+    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "typeorm": "typeorm-ts-node-commonjs",
+    "schema:sync": "pnpm exec typeorm-ts-node-commonjs schema:sync",
+    "typeorm:cache": "pnpm exec typeorm-ts-node-commonjs cache:clear",
+    "schema:drop": "pnpm exec typeorm-ts-node-commonjs -d ./src/config/data-source.ts schema:drop",
+    "migration:create": "pnpm exec typeorm migration:create ./src/migrations/schema-update",
+    "migration:generate": "cross-env NODE_ENV=localhost pnpm exec typeorm-ts-node-commonjs migration:generate ./src/migrations/schema-update -d ./src/config/data-source.ts",
+    "migration:show": "pnpm exec typeorm-ts-node-commonjs migration:show -d ./src/config/data-source.ts",
+    "migration:run": "cross-env NODE_ENV=localhost pnpm exec typeorm-ts-node-commonjs migration:run -d ./src/config/data-source.ts",
+    "migration:revert": "pnpm exec typeorm-ts-node-commonjs migration:revert -d ./src/config/data-source.ts"
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
@@ -28,6 +37,7 @@
     "@nestjs/swagger": "^7.4.2",
     "@nestjs/typeorm": "^10.0.2",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.4.5",
     "pg": "^8.13.0",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1",
@@ -53,7 +63,7 @@
     "supertest": "^7.0.0",
     "ts-jest": "^29.1.0",
     "ts-loader": "^9.4.3",
-    "ts-node": "^10.9.1",
+    "ts-node": "^10.9.2",
     "tsconfig-paths": "^4.2.0",
     "typescript": "^5.1.3"
   },

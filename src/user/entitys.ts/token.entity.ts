@@ -1,20 +1,20 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm';
-import { User } from './user.entity';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne } from 'typeorm'
+import { User } from './user.entity'
 
 @Entity()
 export class Token {
   @PrimaryGeneratedColumn('uuid')
-  id: string;
+  id: string
 
   @Column()
-  token: string;
+  token: string
 
   @Column({ type: 'timestamp' })
-  expiresAt: Date;
+  expiresAt: Date
 
   @Column()
-  userAgent: string;
+  userAgent: string
 
   @ManyToOne(() => User, (user) => user.tokens)
-  user: User;
+  user: User
 }
