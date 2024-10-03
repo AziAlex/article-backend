@@ -9,7 +9,7 @@ import { VerifiedUser } from './entitys.ts/verified-user.entity';
 @Module({
   controllers: [UserController],
   providers: [UserService],
-  exports: [UserService, TypeOrmModule],
+  exports: [UserService, TypeOrmModule, UserModule],
   imports: [TypeOrmModule.forFeature([User, Token, VerifiedUser])],
 })
 export class UserModule { }

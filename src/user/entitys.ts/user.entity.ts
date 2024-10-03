@@ -23,10 +23,10 @@ export class User {
   @Column({ nullable: true })
   banedReason?: string;
 
-  @Column({ name: 'created_at' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', name: 'created_at' })
   createdAt: Date;
 
-  @Column({ name: 'updated_at' })
+  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP',  name: 'updated_at' })
   updatedAt: Date;
 
   @OneToMany(() => Token, ({ user }) => user, { onDelete: 'CASCADE' })
