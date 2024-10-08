@@ -1,4 +1,10 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany, OneToOne } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  OneToOne,
+} from 'typeorm';
 import { Token } from './token.entity';
 import { Article } from 'src/article/entites.ts/article.entity';
 import { VerifiedUser } from './verified-user.entity';
@@ -23,17 +29,25 @@ export class User {
   @Column({ nullable: true })
   banedReason?: string;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP', name: 'created_at' })
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    name: 'created_at',
+  })
   createdAt: Date;
 
-  @Column({ type: 'timestamp', default: () => 'CURRENT_TIMESTAMP',  name: 'updated_at' })
+  @Column({
+    type: 'timestamp',
+    default: () => 'CURRENT_TIMESTAMP',
+    name: 'updated_at',
+  })
   updatedAt: Date;
 
   @OneToMany(() => Token, ({ user }) => user, { onDelete: 'CASCADE' })
-  tokens: Token[]
+  tokens: Token[];
 
   @OneToOne(() => VerifiedUser, ({ user }) => user, { onDelete: 'CASCADE' })
-  verifiedUser: VerifiedUser
+  verifiedUser: VerifiedUser;
 
   @OneToMany(() => Article, ({ user }) => user, { onDelete: 'CASCADE' })
   articles: Article[];

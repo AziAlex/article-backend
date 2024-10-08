@@ -6,17 +6,17 @@ import { JwtModule } from '@nestjs/jwt';
 import { UserService } from 'src/user/user.service';
 
 @Module({
-    controllers: [AuthController],
-    providers: [AuthService,UserService],
-    imports: [
-        forwardRef(() => UserModule),
-        JwtModule.register({
-            secret: process.env.PRIVATE_KEY || 'SECRET',
-            signOptions: {
-                expiresIn: "15m"
-            }
-        })
-    ],
-    exports: [AuthService, JwtModule]
+  controllers: [AuthController],
+  providers: [AuthService, UserService],
+  imports: [
+    forwardRef(() => UserModule),
+    JwtModule.register({
+      secret: process.env.PRIVATE_KEY || 'SECRET',
+      signOptions: {
+        expiresIn: '15m',
+      },
+    }),
+  ],
+  exports: [AuthService, JwtModule],
 })
-export class AuthModule { }
+export class AuthModule {}
