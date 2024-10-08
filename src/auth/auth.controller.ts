@@ -29,6 +29,7 @@ export class AuthController {
       userAgent,
     );
     this.setAuthHeadersAndCookies(res, accessToken, refreshToken);
+    console.log(refreshToken);
     return res.status(200).json({ message: 'login success' });
   }
 
